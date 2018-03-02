@@ -1,0 +1,92 @@
+===================================================================================================================
+							Disclaimer
+===================================================================================================================
+This software is free to use and distribute and comes without any warranty. This was written on my own personal 
+time with no support of my employer or McaAfee.  By using this utility you except all risk.  If you have any 
+question, comments or would like to help please email me at alienpiratesinc@gmail.com.
+
+
+
+APISystemTagger.exe
+-------------------------------------------------------------------------------------------------------------------
+	This is the main application and contains two forms.
+
+	MainForm 
+	***********************************************************************************************************
+	This form is where you apply and clear tags from.  By selecting a tag in the dropdown box and clicking the
+	get system button, you will retrieve all systmes that have been assigned that tag.  NOTE:  it will append 
+	the list to the textbox, it is advised to clear the text area before using this feature.
+
+	Verify tagging Action - If this option is checked, the application will attempt to verify the tagging action 
+	was successful for each of the systems in the textbox.  Once the tagging action is finished, a list of all 
+	systems with the specified tag is retrieved.  Each system in the text box is compared against this retrieve 
+	list.  If the action was successful the font is colored green, if it failed the font will be colored red.
+
+	Login(Connection)
+	***********************************************************************************************************
+	You MUST set connection information prior to using any of the functionality on the main form.  You can set 
+	the account and password used to connect to your ePO server.  The Server:Port area is where you enter the ePo
+	server name/ip and port information.  Default port on ePO servers is 8443.  Note:  Please see the Servers.xml 
+	document below.
+	
+mEpoApi.dll
+-------------------------------------------------------------------------------------------------------------------
+	This DLL contains the methods and properties used to interact with the ePO API.  There are many features that 
+	are not used in the Tagging application but have been created for use in other utilities.
+	
+Servers.xml
+-------------------------------------------------------------------------------------------------------------------
+	This is where you can add a list of all server/port combinations.  Once added this selections will show up on 
+	the Login form.  To add an entry you create a <server></server> Tag within the servers entity.  A sample one 
+	exist as a demo and should be edited to included the correct info.
+
+
+
+
+
+
+
+
+*************
+
+Special Notes
+
+*************
+Tags can be created using this application.  These only create the tag object in ePO, for detailed setting ePO must be used.
+Below is the work flow for creating a new tag.
+
+
+
+
+
+					Text typed in Tag Dropdown
+						   |
+						   |
+						   |
+					   Check if Tag exist
+						   |
+						   |
+					No--------------------Yes
+					|			|
+					|			|
+					|		 Attempts tagging of systems
+					|
+					|
+		Prompts user to see if tag should be created 
+					|
+					|
+			No-----------------------------Yes
+			|				|	
+			|				|
+			|				|
+	Function Exist, Nothing Tagged			|
+							|
+						Tag created for user
+							|
+							|
+    					   Attempts tagging of systems
+
+
+
+
+
